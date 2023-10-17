@@ -1,27 +1,27 @@
-## Retrieval augmented generation (RAG) streamlit app built from LangChain, OpenAI embeddings, and FAISS.
+# Retrieval augmented generation (RAG) streamlit app built from LangChain, OpenAI embeddings, and FAISS.
 
 ![example](./langchain-rag.png)
 
-# conversion of pdf to ocr text via pytesseract
+## conversion of pdf to ocr text via pytesseract
 ```sh
 python pdf_to_png_to_ocr_text.py
 ```
 pdf_to_png_to_ocr_text.py produces text documents for every page of every pdf given in the indicated folder in the script ("./data").
 
-# building the index using FAISS
+## building the index using FAISS
 ```sh
 python ingest_ocr_text_to_index.py
 ```
 ingest_ocr_text_to_index.py uses langchain's CharacterTextSplitter to split text into chunks.
 FAISS is used as the index for document text chunks along with source names as metadata.
 
-# streamlit app
+## streamlit app
 To run the app: 
 ```sh
 streamlit run main.py
 ```
 
-# language chain is built using RetrievalQAWithSourcesChain
+### language chain is built using RetrievalQAWithSourcesChain
 RetrievalQAWithSourcesChain uses the following templates:
 1. Template below is used to get relevant text.
 "Use the following portion of a long document to see if any of the text is 
@@ -46,12 +46,12 @@ FINAL ANSWER:'"
 See "template_combine_prompt.txt", which is an adapted version of the above
 to spit out confidence scores from LLM.
 
-# References:
+## References:
 - [langchain api](https://api.python.langchain.com/en/latest/api_reference.html)
 
 - Adapted from [langchain examples](https://python.langchain.com/docs/use_cases/question_answering/)
 
-# Dependencies:
+## Dependencies:
 Note the packages in the "requirements.txt" file. 
 ```sh
 pip install -r requirements.txt
