@@ -9,8 +9,8 @@ from langchain.chains import RetrievalQAWithSourcesChain
 
 
 # load document index
-index = faiss.read_index("docs.index")
-with open("faiss_index.pkl", "rb") as file:
+index = faiss.read_index("./data/docs.index")
+with open("./data/faiss_index.pkl", "rb") as file:
     store = pickle.load(file)
 store.index = index
 

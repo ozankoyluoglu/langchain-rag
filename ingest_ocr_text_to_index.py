@@ -26,7 +26,7 @@ for index, d in enumerate(data):
 
 # create and store a vector store using FAISS
 store = FAISS.from_texts(docs, OpenAIEmbeddings(), metadatas=metadatas)
-faiss.write_index(store.index, "docs.index")
+faiss.write_index(store.index, "./data/docs.index")
 store.index = None
-with open("faiss_index.pkl", "wb") as file:
+with open("./data/faiss_index.pkl", "wb") as file:
     pickle.dump(store, file)
